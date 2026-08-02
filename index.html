@@ -336,58 +336,16 @@ a.nl.on{color:var(--w);border-left-color:var(--a);
 .sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
 .mh-item,.mb-item{display:none;}.mh-item.on,.mb-item.on{display:block;}.sg{grid-auto-rows:1fr;}.scard{display:flex;flex-direction:column;}.smet{margin-top:auto;}
 
-/* ── 편집 모드 UI ── */
-#edit-fab{position:fixed;right:18px;bottom:18px;z-index:1300;display:flex;gap:8px;}
-#edit-fab button{padding:9px 14px;font-size:12px;border-radius:3px;border:1px solid rgba(14,116,144,.35);
-  background:#fff;color:var(--a);font-family:var(--m);letter-spacing:.05em;
-  box-shadow:0 2px 12px rgba(0,0,0,.1);transition:all .2s;}
-#edit-fab button:hover{background:rgba(14,116,144,.08);}
-body.editing #btn-edit{background:var(--a);color:#fff;}
-#btn-font{display:none;}
-body.editing #btn-font{display:inline-block;}
-#edit-tip{position:fixed;left:50%;transform:translateX(-50%);bottom:74px;z-index:1290;
-  background:rgba(26,26,26,.92);color:#fff;font-size:12px;padding:9px 16px;border-radius:4px;
-  display:none;max-width:min(680px,86vw);text-align:center;line-height:1.6;}
-body.editing #edit-tip{display:block;}
-body.editing *{cursor:auto!important;}
-body.editing .drop{display:none;}
-body.editing #main,body.editing #nav{caret-color:var(--a);}
-body.editing #main:focus,body.editing #nav:focus,
-body.editing [contenteditable="true"]:focus{outline:none;}
-body.editing .scard:hover,body.editing .co-row:hover{outline:1px dashed rgba(14,116,144,.35);outline-offset:-1px;}
 /* ── 레이아웃 안전망 ── */
 .iq>:nth-child(n+2){grid-column:2;}
 @media(max-width:880px){.iq>:nth-child(n+2){grid-column:auto;}}
 .tdesc div,.pdesc div,.iqa div,.ccopy div,.pctxt div,.sdesc div{display:block;}
-/* ── 서식 툴바 · 이미지 툴바 · 폰트 패널 ── */
-#img-toolbar,#fmt-toolbar{position:absolute;z-index:1400;display:none;gap:4px;align-items:center;
-  background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:4px;padding:5px;
-  box-shadow:0 4px 18px rgba(0,0,0,.14);}
-#img-toolbar button,#fmt-toolbar button{border:1px solid rgba(0,0,0,.1);background:#fff;border-radius:3px;
-  font-size:12px;padding:5px 8px;color:#1a1a1a;}
-#img-toolbar button:hover,#fmt-toolbar button:hover{background:rgba(14,116,144,.08);}
-#fmt-toolbar select{font-size:12px;padding:4px;border:1px solid rgba(0,0,0,.12);border-radius:3px;
-  background:#fff;}
-#fmt-toolbar .fmt-c{width:20px;height:20px;padding:0;border-radius:50%;border:1px solid rgba(0,0,0,.15);}
-#font-panel{position:fixed;right:18px;bottom:66px;z-index:1350;display:none;flex-direction:column;gap:10px;
-  background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:6px;padding:14px 16px;width:250px;
-  box-shadow:0 8px 30px rgba(0,0,0,.16);}
-#font-panel .fp-row{display:flex;flex-direction:column;gap:4px;}
-#font-panel label{font-size:11px;color:var(--a);font-family:var(--m);letter-spacing:.08em;}
-#font-panel select{font-size:13px;padding:6px;border:1px solid rgba(0,0,0,.14);border-radius:3px;
-  background:#fff;}
-/* ── 항목별 사진 슬롯 & 사진 설명 캡션 ── */
+/* ── 사진 캡션 (뷰어) ── */
 .ph-block{margin:12px 0;}
 .ph-cap{font-size:10px;color:var(--a2);letter-spacing:.14em;font-family:var(--m);margin:0 0 6px;}
-body.editing .ph-cap:empty{min-height:15px;}
-body.editing .ph-cap:empty::before{content:'✏ 사진 설명 입력 (선택 사항)';color:rgba(26,26,26,.32);}
-.ph-add{display:none;}
-body.editing .ph-add{display:block;width:100%;margin:12px 0 2px;padding:10px;cursor:pointer!important;
-  border:1.5px dashed rgba(14,116,144,.45);background:rgba(14,116,144,.05);color:var(--a);
-  font-family:var(--m);font-size:12px;letter-spacing:.1em;border-radius:3px;text-align:center;transition:background .2s;}
-body.editing .ph-add:hover{background:rgba(14,116,144,.13);}
+
 </style>
-<link id="__fonts__" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Do+Hyeon&amp;family=Gothic+A1:wght@400;700;900&amp;family=Gowun+Batang:wght@400;700&amp;family=Gowun+Dodum&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Jua&amp;family=Nanum+Gothic:wght@400;700;800&amp;family=Nanum+Myeongjo:wght@400;700;800&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;family=Song+Myung&amp;display=swap"><style id="font-override"></style></head>
+<link id="__fonts__" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Do+Hyeon&amp;family=Gothic+A1:wght@400;700;900&amp;family=Gowun+Batang:wght@400;700&amp;family=Gowun+Dodum&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Jua&amp;family=Nanum+Gothic:wght@400;700;800&amp;family=Nanum+Myeongjo:wght@400;700;800&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;family=Song+Myung&amp;display=swap"></head>
 <body spellcheck="false" class="">
 
 <div class="drop" id="d1" style="left: 1195.07px; top: 549.995px;"></div>
@@ -731,34 +689,9 @@ body.editing .ph-add:hover{background:rgba(14,116,144,.13);}
   </div>
 </div>
 
-<div id="edit-fab"><button id="btn-edit" onclick="toggleEdit()">✎ 편집</button><button id="btn-font" onclick="toggleFontPanel()">Aa 폰트</button><button id="btn-save" onclick="saveHTML()">⬇ HTML 저장</button></div>
-<div id="edit-tip">편집 모드 — 문장을 클릭해 바로 수정 · 글자를 <b>드래그하면 서식 툴바</b>(굵게·크기·색상) · 각 항목 아래 <b>＋ 사진 추가</b> 칸을 누르면 그 항목에 사진이 들어가고, 사진 위 작은 글씨로 설명을 쓸 수 있어요 · <b>사진 클릭</b>으로 교체/설명/삭제 · <b>Aa 폰트</b>로 글꼴 변경 · 끝나면 <b>편집 완료 → HTML 저장</b>.</div>
-<div id="img-toolbar" style="display: none; left: 799px; top: 4069.65625px;" data-hero="">
-  <button onclick="imgReplace()">🔁 교체</button>
-  <button id="imgtb-cap" onclick="imgCaption()">✏ 설명</button>
-  <button id="imgtb-del" onclick="imgDelete()">🗑 삭제</button>
-</div>
-<div id="fmt-toolbar" style="display: none; left: 988.01px; top: 5163.33px;">
-  <button onclick="fmtBold()" style="font-weight:800;">B</button>
-  <select id="fmt-size" onchange="fmtSize(this.value)">
-    <option value="">크기</option>
-    <option>12</option><option>13</option><option>14</option><option>15</option><option>16</option>
-    <option>18</option><option>20</option><option>24</option><option>28</option><option>34</option>
-  </select>
-  <button class="fmt-c" style="background:#1a1a1a;" onclick="fmtColor('#1a1a1a')" title="기본"></button>
-  <button class="fmt-c" style="background:#0e7490;" onclick="fmtColor('#0e7490')" title="청록"></button>
-  <button class="fmt-c" style="background:#0f766e;" onclick="fmtColor('#0f766e')" title="진청록"></button>
-  <button class="fmt-c" style="background:#c2410c;" onclick="fmtColor('#c2410c')" title="주황"></button>
-  <button class="fmt-c" style="background:#7c3aed;" onclick="fmtColor('#7c3aed')" title="보라"></button>
-  <button class="fmt-c" style="background:#8a8a8a;" onclick="fmtColor('#6b7280')" title="회색"></button>
-  <button onclick="fmtClear()" title="서식 지우기">✕</button>
-</div>
-<div id="font-panel" style="display: none;">
-  <div class="fp-row"><label>전체 글꼴</label><select id="font-body"><option value="">기본 (나눔스퀘어라운드)</option><option value="Noto Sans KR" style="font-family: &quot;Noto Sans KR&quot;, sans-serif;">노토 산스 KR</option><option value="IBM Plex Sans KR" style="font-family: &quot;IBM Plex Sans KR&quot;, sans-serif;">IBM Plex Sans KR</option><option value="Gothic A1" style="font-family: &quot;Gothic A1&quot;, sans-serif;">고딕 A1</option><option value="Nanum Gothic" style="font-family: &quot;Nanum Gothic&quot;, sans-serif;">나눔고딕</option><option value="Nanum Myeongjo" style="font-family: &quot;Nanum Myeongjo&quot;, sans-serif;">나눔명조</option><option value="Gowun Batang" style="font-family: &quot;Gowun Batang&quot;, sans-serif;">고운바탕</option><option value="Gowun Dodum" style="font-family: &quot;Gowun Dodum&quot;, sans-serif;">고운돋움</option><option value="Song Myung" style="font-family: &quot;Song Myung&quot;, sans-serif;">송명</option><option value="Jua" style="font-family: Jua, sans-serif;">주아</option><option value="Do Hyeon" style="font-family: &quot;Do Hyeon&quot;, sans-serif;">도현</option><option value="Black Han Sans" style="font-family: &quot;Black Han Sans&quot;, sans-serif;">검은고딕</option></select></div>
   <div class="fp-row"><label>제목 글꼴</label><select id="font-head"><option value="">기본 (나눔스퀘어라운드)</option><option value="Noto Sans KR" style="font-family: &quot;Noto Sans KR&quot;, sans-serif;">노토 산스 KR</option><option value="IBM Plex Sans KR" style="font-family: &quot;IBM Plex Sans KR&quot;, sans-serif;">IBM Plex Sans KR</option><option value="Gothic A1" style="font-family: &quot;Gothic A1&quot;, sans-serif;">고딕 A1</option><option value="Nanum Gothic" style="font-family: &quot;Nanum Gothic&quot;, sans-serif;">나눔고딕</option><option value="Nanum Myeongjo" style="font-family: &quot;Nanum Myeongjo&quot;, sans-serif;">나눔명조</option><option value="Gowun Batang" style="font-family: &quot;Gowun Batang&quot;, sans-serif;">고운바탕</option><option value="Gowun Dodum" style="font-family: &quot;Gowun Dodum&quot;, sans-serif;">고운돋움</option><option value="Song Myung" style="font-family: &quot;Song Myung&quot;, sans-serif;">송명</option><option value="Jua" style="font-family: Jua, sans-serif;">주아</option><option value="Do Hyeon" style="font-family: &quot;Do Hyeon&quot;, sans-serif;">도현</option><option value="Black Han Sans" style="font-family: &quot;Black Han Sans&quot;, sans-serif;">검은고딕</option></select></div>
   <div style="font-size:11px;color:rgba(26,26,26,.45);line-height:1.5;">선택 즉시 적용되고, HTML 저장 시 함께 저장됩니다.</div>
 </div>
-<input type="file" id="img-file" accept="image/*" hidden="">
 
 <script>
 // ── CURSOR ──
@@ -792,7 +725,7 @@ window.addEventListener('scroll',()=>{
   });
 },{passive:true});
 
-// ── 스킬 바 ──
+// ── 스킬 바 (0 → 퍼센트 애니메이션) ──
 const skObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -806,7 +739,7 @@ const skObs=new IntersectionObserver(entries=>{
 },{threshold:.2});
 document.querySelectorAll('#skills').forEach(s=>skObs.observe(s));
 
-// ── 경력사항 토글 ──
+// ── 경력사항 토글 (클릭한 회사에 핀 고정) ──
 function toggleCo(id){
   const body=document.getElementById('body-'+id);
   if(!body) return;
@@ -815,7 +748,6 @@ function toggleCo(id){
     const b=document.getElementById('body-'+c);
     const bt=document.getElementById('btn-'+c);
     if(b&&c!==id){
-      // 다른 회사는 애니메이션 없이 즉시 접기 → 페이지가 아래로 밀리지 않음
       const tr=b.style.transition;
       b.style.transition='none'; b.style.maxHeight='0';
       void b.offsetHeight;
@@ -827,7 +759,6 @@ function toggleCo(id){
   body.style.maxHeight=(body.scrollHeight+3000)+'px';
   const btn=document.getElementById('btn-'+id);
   if(btn) btn.classList.add('open');
-  // 클릭한 회사 행을 화면 상단에 핀 고정
   const row=document.getElementById('cr-'+id);
   if(row) setTimeout(()=>{ row.scrollIntoView({behavior:'smooth',block:'start'}); },60);
 }
@@ -848,7 +779,6 @@ function switchTab(btn,prefix,tab){
 
 // ── 성과 숫자 슬롯머신 ──
 function slotAnim(el){
-  if(EDIT){ el.style.opacity='1'; return; }
   const orig=el.textContent.trim();
   const m=orig.match(/^([\d.]+)(.*)$/);
   if(!m) return;
@@ -879,28 +809,17 @@ const numObs=new IntersectionObserver(entries=>{
 },{threshold:.25});
 document.querySelectorAll('#numbers').forEach(s=>numObs.observe(s));
 
-// ── 모달 : 내용이 페이지 DOM 안에 있어 편집 모드에서 직접 수정 가능 ──
-let curModal=null;
+// ── 모달 ──
 function openModal(id){
-  curModal=id;
   document.querySelectorAll('#mh-c .mh-item,#mb-c .mb-item').forEach(e=>e.classList.toggle('on', e.getAttribute('data-mid')===id));
   document.getElementById('mo').classList.add('open');
   document.body.style.overflow='hidden';
-  setModalEditable(EDIT);
-}
-function setModalEditable(on){
-  ['mh-c','mb-c'].forEach(i=>{
-    const el=document.getElementById(i);
-    if(el) el.contentEditable=on?'true':'false';
-  });
 }
 function closeMo(){
-  if(EDIT) sanitizeIn(document.getElementById('mb-c'));
   document.getElementById('mo').classList.remove('open');
   document.body.style.overflow='';
-  curModal=null;
 }
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeMo(); hideEditorUIs(); } });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMo(); });
 
 // ── NAV 클릭 스크롤 ──
 document.querySelectorAll('a.nl').forEach(a=>{
@@ -913,295 +832,6 @@ document.querySelectorAll('a.nl').forEach(a=>{
     }
   });
 });
-
-// ── 편집 모드 ──
-let EDIT=false;
-function toggleEdit(){
-  EDIT=!EDIT;
-  document.body.classList.toggle('editing',EDIT);
-  ['main','nav'].forEach(i=>{
-    const el=document.getElementById(i);
-    if(el) el.contentEditable=EDIT?'true':'false';
-  });
-  if(EDIT){
-    // 버튼류는 편집 대상에서 제외해 계속 클릭 가능하게
-    document.querySelectorAll('.tbtn,.tab,.mc').forEach(b=>b.contentEditable='false');
-    addPhotoSlots();
-  }
-  if(curModal) setModalEditable(EDIT);
-  const be=document.getElementById('btn-edit');
-  if(be) be.textContent=EDIT?'✓ 편집 완료':'✎ 편집';
-  if(!EDIT){ removePhotoSlots(); sanitizeContent(); hideEditorUIs(); }
-}
-// 편집 모드에서는 링크·카드 클릭 동작을 멈춰 어떤 문장이든 클릭해 수정 가능
-// (＋버튼, 탭, 모달 닫기, "세부 내용 보기" 힌트는 계속 동작)
-document.addEventListener('click',function(e){
-  if(!EDIT||!e.target.closest) return;
-  if(e.target.closest('#edit-fab,#img-toolbar,#fmt-toolbar,#font-panel')||e.target.closest('.tbtn,.tab,.mc,.shint,.thint')) return;
-  const act=e.target.closest('a,[onclick]');
-  if(act){ e.preventDefault(); e.stopPropagation(); }
-},true);
-
-// ── 자동 정리(레이아웃 깨짐 재발 방지) ──
-// 편집 중 생기는 빈 태그(<p></p>, <div></div>, <strong></strong> 등)와 &nbsp;를
-// 페이지 로드 시·편집 종료 시·저장 시 자동으로 제거
-function sanitizeIn(root){
-  if(!root) return;
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-  let tn;
-  while(tn=walker.nextNode()){
-    if(tn.nodeValue.indexOf('\u00a0')>-1) tn.nodeValue=tn.nodeValue.replace(/\u00a0/g,' ');
-  }
-  root.querySelectorAll('.ph-cap').forEach(c=>{ if(!c.textContent.trim()) c.remove(); });
-  root.querySelectorAll('.ph-add').forEach(b=>b.remove());
-  for(let pass=0;pass<6;pass++){
-    let removed=0;
-    root.querySelectorAll('p,span,strong,em,b,i,u,li,div').forEach(el=>{
-      if(el.tagName==='DIV'&&el.attributes.length) return;           // 구조용 div 유지
-      if(el.querySelector('img,video,svg,iframe,input,button,a,br')) return;
-      if(el.textContent.trim()) return;
-      el.remove(); removed++;
-    });
-    if(!removed) break;
-  }
-}
-function sanitizeContent(){
-  sanitizeIn(document.getElementById('main'));
-  sanitizeIn(document.getElementById('nav'));
-  sanitizeIn(document.getElementById('mh-c'));
-  sanitizeIn(document.getElementById('mb-c'));
-}
-
-// ── 수정본을 HTML 파일로 저장(다운로드) ──
-function saveHTML(){
-  if(EDIT) toggleEdit();
-  hideEditorUIs();
-  sanitizeContent();
-  const doc=document.documentElement.cloneNode(true);
-  doc.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
-  doc.querySelectorAll('.ph-add').forEach(el=>el.remove());
-  doc.querySelectorAll('.sfill').forEach(el=>el.style.width='0%');
-  const mo=doc.querySelector('#mo'); if(mo) mo.classList.remove('open');
-  const b=doc.querySelector('body');
-  if(b){ b.removeAttribute('style'); b.classList.remove('editing'); b.setAttribute('spellcheck','false'); }
-  const html='<!DOCTYPE html>\n'+doc.outerHTML;
-  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='포트폴리오_오재훈.html';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(a.href),3000);
-}
-
-
-// ── 에디터 확장 ①: 사진 추가·교체·삭제 ──
-let curImg=null, imgMode=null, placing=false, pendingUrl=null;
-
-function showImgToolbar(target,heroMode){
-  curImg=target;
-  const tb=document.getElementById('img-toolbar');
-  tb.style.display='flex';
-  tb.dataset.hero=heroMode?'1':'';
-  document.getElementById('imgtb-del').style.display=heroMode?'none':'';
-  const r=target.getBoundingClientRect();
-  tb.style.left=Math.max(8,r.left+window.scrollX+8)+'px';
-  tb.style.top=(r.top+window.scrollY+8)+'px';
-}
-function hideImgToolbar(){ const tb=document.getElementById('img-toolbar'); if(tb) tb.style.display='none'; curImg=null; }
-function imgReplace(){ imgMode='replace'; document.getElementById('img-file').click(); }
-let slotTarget=null;
-function addPhotoSlots(){
-  // 각 항목(경력 카드·탭 패널·업무방식 박스) 끝에 1:1 사진 슬롯 표시
-  document.querySelectorAll('#main .ti, #main .pbox, #main .tp').forEach(box=>{
-    if(box.querySelector(':scope > .ph-add')) return;
-    const b=document.createElement('button');
-    b.type='button'; b.className='ph-add'; b.textContent='＋ 사진 추가';
-    b.contentEditable='false';
-    box.appendChild(b);
-  });
-}
-function removePhotoSlots(){ document.querySelectorAll('.ph-add').forEach(b=>b.remove()); }
-function imgCaption(){
-  const tb=document.getElementById('img-toolbar');
-  if(!curImg||tb.dataset.hero) return;
-  let cap=null;
-  const blk=curImg.closest('.ph-block');
-  if(blk){
-    cap=blk.querySelector('.ph-cap');
-    if(!cap){ cap=document.createElement('div'); cap.className='ph-cap'; blk.insertBefore(cap,blk.firstChild); }
-  }else{
-    const wrap=curImg.parentElement;
-    const prev=wrap.previousElementSibling;
-    if(prev&&prev.classList&&prev.classList.contains('ph-cap')) cap=prev;
-    else{ cap=document.createElement('div'); cap.className='ph-cap'; wrap.insertAdjacentElement('beforebegin',cap); }
-  }
-  hideImgToolbar();
-  const r=document.createRange(); r.selectNodeContents(cap); r.collapse(false);
-  const s=getSelection(); s.removeAllRanges(); s.addRange(r);
-}
-function imgDelete(){
-  if(!curImg) return;
-  const blk=curImg.closest('.ph-block');
-  if(blk){ blk.remove(); hideImgToolbar(); return; }
-  const wrap=curImg.parentElement;
-  if(wrap&&wrap.tagName==='DIV'&&!wrap.id&&wrap.closest('#main')&&
-     wrap.querySelectorAll('img').length===1&&wrap.textContent.trim().length<40){
-    wrap.remove();               // 사진+캡션만 있는 래퍼면 통째로 제거
-  } else curImg.remove();
-  hideImgToolbar();
-}
-document.getElementById('img-file').addEventListener('change',function(){
-  const f=this.files[0]; this.value='';
-  if(!f) return;
-  const fr=new FileReader();
-  fr.onload=()=>{
-    const im=new Image();
-    im.onload=()=>{
-      let url=fr.result;
-      const MAX=1600;
-      if(im.width>MAX||f.size>400*1024){   // 큰 사진은 자동 축소·압축해 파일이 무거워지지 않게
-        const c=document.createElement('canvas');
-        const sc=Math.min(1,MAX/im.width);
-        c.width=Math.round(im.width*sc); c.height=Math.round(im.height*sc);
-        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-        url=c.toDataURL('image/jpeg',.85);
-      }
-      applyImage(url);
-    };
-    im.src=fr.result;
-  };
-  fr.readAsDataURL(f);
-});
-function applyImage(url){
-  if(imgMode==='replace'&&curImg){
-    const tb=document.getElementById('img-toolbar');
-    if(tb.dataset.hero) curImg.style.backgroundImage="url('"+url+"')";
-    else curImg.src=url;
-    hideImgToolbar();
-  }else if(imgMode==='slot'&&slotTarget){
-    const blk=document.createElement('div');
-    blk.className='ph-block';
-    blk.innerHTML='<div class="ph-cap"></div><div style="border-radius:2px;overflow:hidden;">'+
-      '<img src="'+url+'" style="width:100%;display:block;" loading="lazy"></div>';
-    slotTarget.insertAdjacentElement('beforebegin',blk);
-    slotTarget=null;
-  }
-  imgMode=null;
-}
-function setTip(t){
-  const el=document.getElementById('edit-tip'); if(!el) return;
-  if(!el.dataset.orig) el.dataset.orig=el.innerHTML;
-  el.innerHTML=t;
-}
-function resetTip(){
-  const el=document.getElementById('edit-tip');
-  if(el&&el.dataset.orig) el.innerHTML=el.dataset.orig;
-}
-function cancelPlacing(){ placing=false; pendingUrl=null; resetTip(); }
-
-document.addEventListener('click',e=>{
-  if(!EDIT||!e.target.closest) return;
-  if(e.target.closest('#img-toolbar,#fmt-toolbar,#font-panel,#edit-fab')) return;
-  const addBtn=e.target.closest('.ph-add');
-  if(addBtn){ slotTarget=addBtn; imgMode='slot'; document.getElementById('img-file').click(); return; }
-  const img=e.target.closest('#main img');
-  if(img){ showImgToolbar(img,false); return; }
-  if(e.target.classList&&e.target.classList.contains('hov')){
-    const bg=document.querySelector('.hbgimg');
-    if(bg){ showImgToolbar(bg,true); return; }
-  }
-  hideImgToolbar();
-});
-
-// ── 에디터 확장 ②: 글자 서식 (드래그 선택 시 툴바) ──
-function fmtCmd(c,v){ document.execCommand('styleWithCSS',false,true); document.execCommand(c,false,v); }
-function fmtBold(){ fmtCmd('bold'); }
-function fmtColor(col){ fmtCmd('foreColor',col); }
-function fmtClear(){ document.execCommand('removeFormat'); }
-function fmtSize(px){
-  if(!px) return;
-  document.execCommand('styleWithCSS',false,false);
-  document.execCommand('fontSize',false,'7');
-  document.querySelectorAll('font[size="7"], span[style*="xxx-large"]').forEach(f=>{
-    const s=document.createElement('span'); s.style.fontSize=px+'px';
-    s.innerHTML=f.innerHTML; f.replaceWith(s);
-  });
-  document.getElementById('fmt-size').value='';
-}
-function updateFmtToolbar(){
-  const tb=document.getElementById('fmt-toolbar'); if(!tb) return;
-  if(!EDIT){ tb.style.display='none'; return; }
-  const sel=window.getSelection();
-  if(!sel.rangeCount||sel.isCollapsed){ tb.style.display='none'; return; }
-  const n=sel.anchorNode, el=n&&(n.nodeType===1?n:n.parentElement);
-  if(!el||!el.closest('#main,#nav,.mp')){ tb.style.display='none'; return; }
-  const r=sel.getRangeAt(0).getBoundingClientRect();
-  tb.style.display='flex';
-  tb.style.left=Math.max(8,r.left+window.scrollX)+'px';
-  tb.style.top=Math.max(8,r.top+window.scrollY-46)+'px';
-}
-document.addEventListener('mouseup',()=>setTimeout(updateFmtToolbar,10));
-document.addEventListener('keyup',e=>{ if(e.shiftKey||String(e.key).indexOf('Arrow')===0) setTimeout(updateFmtToolbar,10); });
-(function(){
-  const tb=document.getElementById('fmt-toolbar');
-  if(tb) tb.addEventListener('mousedown',e=>{ if(e.target.tagName!=='SELECT') e.preventDefault(); });
-})();
-
-// ── 에디터 확장 ③: 폰트 변경 (선택 즉시 적용, 저장 시 유지) ──
-const FONTS=[
-  ['기본 (나눔스퀘어라운드)',''],
-  ['노토 산스 KR','Noto Sans KR'],
-  ['IBM Plex Sans KR','IBM Plex Sans KR'],
-  ['고딕 A1','Gothic A1'],
-  ['나눔고딕','Nanum Gothic'],
-  ['나눔명조','Nanum Myeongjo'],
-  ['고운바탕','Gowun Batang'],
-  ['고운돋움','Gowun Dodum'],
-  ['송명','Song Myung'],
-  ['주아','Jua'],
-  ['도현','Do Hyeon'],
-  ['검은고딕','Black Han Sans'],
-];
-function initFontPanel(){
-  ['font-body','font-head'].forEach(id=>{
-    const sel=document.getElementById(id);
-    if(!sel||sel.options.length) return;
-    FONTS.forEach(f=>{
-      const o=document.createElement('option');
-      o.value=f[1]; o.textContent=f[0];
-      if(f[1]) o.style.fontFamily='"'+f[1]+'", sans-serif';
-      sel.appendChild(o);
-    });
-    sel.addEventListener('change',applyFonts);
-  });
-  const ov=document.getElementById('font-override');
-  if(ov){
-    document.getElementById('font-body').value=ov.dataset.body||'';
-    document.getElementById('font-head').value=ov.dataset.head||'';
-  }
-}
-function applyFonts(){
-  const ov=document.getElementById('font-override'); if(!ov) return;
-  const b=document.getElementById('font-body').value;
-  const h=document.getElementById('font-head').value;
-  let css='';
-  if(b) css+=':root{--f:"'+b+'","Nanum Square Round","Nanum Gothic",sans-serif;}\n';
-  if(h) css+='.hname,.st,.chl,.stitle,.ttit,.ptit,.mtit,.nn,.iqq,.pbn,.cetit{font-family:"'+h+'","Nanum Square Round",sans-serif;}';
-  ov.textContent=css; ov.dataset.body=b; ov.dataset.head=h;
-}
-function toggleFontPanel(){
-  const p=document.getElementById('font-panel');
-  p.style.display=(p.style.display==='flex')?'none':'flex';
-}
-function hideEditorUIs(){
-  hideImgToolbar();
-  const ft=document.getElementById('fmt-toolbar'); if(ft) ft.style.display='none';
-  const fp=document.getElementById('font-panel'); if(fp) fp.style.display='none';
-  cancelPlacing();
-}
-
-// ── INIT ──
-document.addEventListener('DOMContentLoaded',()=>{ sanitizeContent(); initFontPanel(); });
 </script>
 
 
